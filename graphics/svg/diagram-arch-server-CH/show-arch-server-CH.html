@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+  A simple example of an SVG graphic of a server architecture diagram that is manipulated with
+  Javascript/jQuery and the VelocityJS library for animation.
+
+  Must use Javascript to access SVG in an <object> tag, ugg!
+
+  MODIFICATIONS:
+  170305 Sheffel Original version
+-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Server Architecture CH</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.3/velocity.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.3/velocity.js" integrity="sha256-94I6g2bIdEXmxxopntc9MRP6SuJmzKGBwo6DBvCxEjU=" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.4.3/velocity.ui.min.js" integrity="sha256-4kWT4POSE3lDzRYebcvmwas993GrlRsGqMfzAgt3Hg0=" crossorigin="anonymous"></script> -->
+
+  <style>
+    div#viewMain {
+      position:fixed !important;
+      position:absolute;
+      top:0;
+      right:0;
+      bottom:0;
+      left:0;
+    }
+    div#controls {
+      display: inline-block;  /* contains button */
+      width: 15%;
+      margin: 15px;
+    }
+    div#graph {
+      display: inline-block;  /* contains graph */
+    }
+  </style>
+</head>
+<body>
+  <div id="viewMain">
+    <div id="controls">
+      <button id="director">Go<br/>Production</button>
+    </div>
+    <div id="graph">
+        <object id="objSvg" type="image/svg+xml" data="./diagram-arch-server-SRS-CH.svg">
+          <!-- width="800" height="1000"> -->
+        </object>
+        <!-- With inline SVG, jQuery selectors simply work, but not for HTML objects
+        <svg> <rect id="rect-01" width="25" height="25" x="10%" y="10%" fill="gray" stroke="rgba(80, 80, 80, 1)" stroke-width="0px" /> </svg> -->
+    </div>
+  </div>
+</body>
+
+<script>
+var myObj;
+var myContent;
+var myServer;
+$(document).ready(function() {
+  var state = "initial";
+  var nextState = "initial";
+  myObj = document.getElementById("objSvg");
+  myContent = myObj.contentDocument;
+  myServer = myContent.getElementById("server-webserver-4266");
+  $("button#director").on('click', function(event) {
+      var target = event.target || event.srcElement;
+      console.log("button click: " + target.id);
+
+      state = nextState || "initial";
+      console.log("state: " + state);
+
+      if (state === "initial") {
+        target.innerHTML = "Go<br/>Production";
+        //$("#server-webserver-4266").velocity({ x: "+=200", y: "25%" });
+        //$("#objSvg").find("#server-webserver-4266").velocity({ fillGreen: 255, strokeWidth: 2 });
+        $(myServer).velocity({ x: "0", y: "0" });
+        $(myServer).velocity({ fillGreen: 255, strokeWidth: 2 });
+        nextState = "increaseTraffic";
+      }
+
+      if (state === "increaseTraffic") {
+        target.innerHTML = "Increase<br/>Traffic";
+        $(myServer).velocity({ x: "300", y: "500" });
+        nextState = "initial";
+      }
+  }); 
+
+  function resetButtons(event) {
+    $("button#director").innerHTML = "Go<br/>Production";
+  }
+});
+</script>
+</html>
+
