@@ -1,0 +1,59 @@
+$ gem install sparql                                                                                                                                              ✘ 1
+Fetching rdf-aggregate-repo-3.1.0.gem
+Fetching builder-3.2.4.gem
+Fetching sxp-1.1.0.gem
+Fetching link_header-0.0.8.gem
+Fetching concurrent-ruby-1.1.6.gem
+Fetching hamster-3.0.0.gem
+Fetching rdf-3.1.1.gem
+Fetching ebnf-1.2.0.gem
+Fetching connection_pool-2.2.2.gem
+Fetching net-http-persistent-3.1.0.gem
+Fetching sparql-client-3.1.0.gem
+Fetching rdf-xsd-3.1.0.gem
+Fetching sparql-3.1.0.gem
+Successfully installed link_header-0.0.8
+Successfully installed concurrent-ruby-1.1.6
+Successfully installed hamster-3.0.0
+Successfully installed rdf-3.1.1
+Successfully installed rdf-aggregate-repo-3.1.0
+Successfully installed sxp-1.1.0
+Successfully installed ebnf-1.2.0
+Successfully installed builder-3.2.4
+Successfully installed connection_pool-2.2.2
+Successfully installed net-http-persistent-3.1.0
+Successfully installed sparql-client-3.1.0
+
+  For best results, use nokogiri and equivalent-xml gems as well.
+  These are not hard requirements to preserve pure-ruby dependencies.
+Successfully installed rdf-xsd-3.1.0
+Successfully installed sparql-3.1.0
+Parsing documentation for link_header-0.0.8
+Installing ri documentation for link_header-0.0.8
+Parsing documentation for concurrent-ruby-1.1.6
+Installing ri documentation for concurrent-ruby-1.1.6
+Parsing documentation for hamster-3.0.0
+Installing ri documentation for hamster-3.0.0
+Parsing documentation for rdf-3.1.1
+Installing ri documentation for rdf-3.1.1
+Parsing documentation for rdf-aggregate-repo-3.1.0
+Installing ri documentation for rdf-aggregate-repo-3.1.0
+Parsing documentation for sxp-1.1.0
+Installing ri documentation for sxp-1.1.0
+Parsing documentation for ebnf-1.2.0
+Installing ri documentation for ebnf-1.2.0
+Parsing documentation for builder-3.2.4
+Installing ri documentation for builder-3.2.4
+Parsing documentation for connection_pool-2.2.2
+Installing ri documentation for connection_pool-2.2.2
+Parsing documentation for net-http-persistent-3.1.0
+Installing ri documentation for net-http-persistent-3.1.0
+Parsing documentation for sparql-client-3.1.0
+Installing ri documentation for sparql-client-3.1.0
+Parsing documentation for rdf-xsd-3.1.0
+Installing ri documentation for rdf-xsd-3.1.0
+Parsing documentation for sparql-3.1.0
+Installing ri documentation for sparql-3.1.0
+Done installing documentation for link_header, concurrent-ruby, hamster, rdf, rdf-aggregate-repo, sxp, ebnf, builder, connection_pool, net-http-persistent, sparql-client, rdf-xsd, sparql after 9 seconds
+13 gems installed
+
