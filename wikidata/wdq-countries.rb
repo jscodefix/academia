@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
+# outputs attributes of all countries using wikidata
+# https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples/ko # see Geography example
 
 # prerequisite: gem install sparql
 #   http://www.rubydoc.info/github/ruby-rdf/sparql/frames
+# ideas:
+# - add continent, area (kilometers squared)
+# - add image of flag, image of country shape
 
 require 'sparql/client'
 
@@ -15,11 +20,11 @@ WHERE
   ?country wdt:P31 wd:Q3624078 .
   # not a former country
   FILTER NOT EXISTS {?country wdt:P31 wd:Q3024240}
-  # and no an ancient civilisation (needed to exclude ancient Egypt)
+  # and not an ancient civilization (exclude ancient Egypt)
   FILTER NOT EXISTS {?country wdt:P31 wd:Q28171280}
   OPTIONAL { ?country wdt:P36 ?capital } .
 
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" }
 }
 ORDER BY ?countryLabel
 SPARQL
