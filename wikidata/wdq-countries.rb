@@ -9,12 +9,13 @@
 # - add image of flag, image of country shape
 
 require 'sparql/client'
+require 'json'
 
 endpoint = "https://query.wikidata.org/sparql"
 sparql = <<'SPARQL'.chop
 # list of present-day countries and capital(s)
 # added before 2016-10
-SELECT DISTINCT ?country ?countryLabel ?capital ?capitalLabel
+SELECT DISTINCT ?country ?countryLabel ?capital ?capitalLabel ?continent ?continentLabel ?area
 WHERE
 {
   ?country wdt:P31 wd:Q3624078 .
@@ -22,7 +23,10 @@ WHERE
   FILTER NOT EXISTS {?country wdt:P31 wd:Q3024240}
   # and not an ancient civilization (exclude ancient Egypt)
   FILTER NOT EXISTS {?country wdt:P31 wd:Q28171280}
+
   OPTIONAL { ?country wdt:P36 ?capital } .
+  OPTIONAL { ?country wdt:P30 ?continent } .
+  OPTIONAL { ?country wdt:P2046 ?area } .    # country geometric area
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en" }
 }
@@ -34,18 +38,31 @@ client = SPARQL::Client.new(
   :method => :get,
   # adjust user agent; see https://w.wiki/CX6
   headers: {
-    'User-Agent' => 'jscodefix-ruby/0.1 (https://github.com/jscodefix/; jscodefix@sheffel.org)'
+    'User-Agent' => 'jscodefix-ruby/0.1 (https://github.com/jscodefix/; jscodefix@sheffel.org)',
+    'Accept' => 'application/sparql-results+json'
   }
 )
 
-rows = client.query(sparql)
+data = client.query(sparql)
+# puts JSON.pretty_generate(data.to_h)  # wrong; to_h wrong element type RDF::Query::Solution
 
-puts "Number of rows: #{rows.size}"
-for row in rows
-  for key,val in row do
-    # print "#{key.to_s.ljust(10)}: #{val}\t"
-    print "#{key}: #{val}\t"
-  end
-  print "\n"
+# Convert each solution to a hash and collect them into an array
+results_as_hashes = data.map do |solution|
+  solution.to_h.transform_values(&:to_s) # Convert each value (RDF::Resource, RDF::Literal) to its string representation
 end
+
+# You might want to wrap this in a top-level hash for cleaner JSON
+# especially if you want to include metadata or follow the SPARQL JSON results format more closely
+json_output_data = {
+  "head" => {
+    "vars" => %w[country countryLabel capital capitalLabel continent continentLabel area]
+
+  },
+  "results" => {
+    "bindings" => results_as_hashes
+  }
+}
+
+# Convert the structured data to a JSON string and print it
+puts JSON.pretty_generate(json_output_data)
 
