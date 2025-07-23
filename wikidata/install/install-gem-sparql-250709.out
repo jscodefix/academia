@@ -1,0 +1,71 @@
+sheffel@themisto:/data2t/repo/jscodefix/academia/wikidata: gem install sparql
+Fetching net-http-persistent-4.0.6.gem
+Fetching link_header-0.0.8.gem
+Fetching bcp47_spec-0.2.1.gem
+Fetching ostruct-0.6.2.gem
+Fetching rdf-3.3.3.gem
+Fetching sparql-client-3.3.0.gem
+Fetching connection_pool-2.5.3.gem
+Fetching sxp-2.0.0.gem
+Fetching rdf-xsd-3.3.0.gem
+Fetching rdf-aggregate-repo-3.3.0.gem
+Fetching unicode-types-1.10.0.gem
+Fetching scanf-1.0.0.gem
+Fetching htmlentities-4.3.4.gem
+Fetching base64-0.3.0.gem
+Fetching ebnf-2.6.0.gem
+Fetching sparql-3.3.2.gem
+Successfully installed ostruct-0.6.2
+Successfully installed link_header-0.0.8
+Successfully installed bcp47_spec-0.2.1
+Successfully installed rdf-3.3.3
+Successfully installed sxp-2.0.0
+Successfully installed connection_pool-2.5.3
+Successfully installed net-http-persistent-4.0.6
+Successfully installed sparql-client-3.3.0
+
+  For best results, use nokogiri and equivalent-xml gems as well.
+  These are not hard requirements to preserve pure-ruby dependencies.
+Successfully installed rdf-xsd-3.3.0
+Successfully installed rdf-aggregate-repo-3.3.0
+Successfully installed unicode-types-1.10.0
+Successfully installed scanf-1.0.0
+Successfully installed htmlentities-4.3.4
+Successfully installed base64-0.3.0
+Successfully installed ebnf-2.6.0
+Successfully installed sparql-3.3.2
+Parsing documentation for ostruct-0.6.2
+Installing ri documentation for ostruct-0.6.2
+Parsing documentation for link_header-0.0.8
+Installing ri documentation for link_header-0.0.8
+Parsing documentation for bcp47_spec-0.2.1
+Installing ri documentation for bcp47_spec-0.2.1
+Parsing documentation for rdf-3.3.3
+Installing ri documentation for rdf-3.3.3
+Parsing documentation for sxp-2.0.0
+Installing ri documentation for sxp-2.0.0
+Parsing documentation for connection_pool-2.5.3
+Installing ri documentation for connection_pool-2.5.3
+Parsing documentation for net-http-persistent-4.0.6
+Installing ri documentation for net-http-persistent-4.0.6
+Parsing documentation for sparql-client-3.3.0
+Installing ri documentation for sparql-client-3.3.0
+Parsing documentation for rdf-xsd-3.3.0
+Installing ri documentation for rdf-xsd-3.3.0
+Parsing documentation for rdf-aggregate-repo-3.3.0
+Installing ri documentation for rdf-aggregate-repo-3.3.0
+Parsing documentation for unicode-types-1.10.0
+Installing ri documentation for unicode-types-1.10.0
+Parsing documentation for scanf-1.0.0
+Installing ri documentation for scanf-1.0.0
+Parsing documentation for htmlentities-4.3.4
+Installing ri documentation for htmlentities-4.3.4
+Parsing documentation for base64-0.3.0
+Installing ri documentation for base64-0.3.0
+Parsing documentation for ebnf-2.6.0
+Installing ri documentation for ebnf-2.6.0
+Parsing documentation for sparql-3.3.2
+Installing ri documentation for sparql-3.3.2
+Done installing documentation for ostruct, link_header, bcp47_spec, rdf, sxp, connection_pool, net-http-persistent, sparql-client, rdf-xsd, rdf-aggregate-repo, unicode-types, scanf, htmlentities, base64, ebnf, sparql after 10 seconds
+16 gems installed
+
